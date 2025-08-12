@@ -1,0 +1,10 @@
+name: GrapplingHook
+version: 1.0.0
+main: me.mrsandking.grapplinghook.GrapplingHookMain
+
+commands:
+  grapplinghook:
+    aliases: [ gh ]
+    description: List of grappling hooks
+    permission: grapplinghook.command
+    usage: Maybe try this one '/grapplinghooks'

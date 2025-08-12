@@ -1,0 +1,26 @@
+SerialNumber: 0
+Cooldown-Message: "&cWait a moment, before using this again!"
+
+Stats-Lore:
+  - "&7Multiplier: &6%MULTIPLIER%"
+  - "&7Cooldown: &6%COOLDOWN% seconds"
+  - ""
+  - "&7Owner: &6%OWNER%"
+  - "&7Serial Number: &6%SERIAL_NUMBER%"
+
+GrapplingHooks:
+  base_hook:
+    DisplayName: "&6&lBase Grappling Hook"
+    Multiplier: 2.5
+    Max-Y-Power: 0.9
+    Cooldown: 15
+  normal_hook:
+    DisplayName: "&6&lNormal Grappling Hook"
+    Multiplier: 3.5
+    Max-Y-Power: 1.2
+    Cooldown: 10
+  amazing_hook:
+    DisplayName: "&d&lAMAZING GRAPPLING HOOK"
+    Multiplier: 4.5
+    Max-Y-Power: 1.5
+    Cooldown: 7
