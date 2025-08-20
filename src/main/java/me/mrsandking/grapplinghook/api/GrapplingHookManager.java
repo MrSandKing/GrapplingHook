@@ -12,6 +12,8 @@ public interface GrapplingHookManager {
 
     GrapplingHook getGrapplingHook(ItemStack itemStack);
 
+    GrapplingHook getGrapplingHook(String id);
+
     void applyCooldown(Player player, GrapplingHook grapplingHook);
 
     boolean isGrapplingHook(Player player, ItemStack itemStack);
@@ -19,6 +21,8 @@ public interface GrapplingHookManager {
     boolean hasFallDamage(UUID uuid);
 
     boolean hasCooldown(UUID uuid);
+
+    long getCooldown(UUID uuid);
 
     ItemStack createGrapplingHook(GrapplingHook grapplingHook, UUID uniqueId);
 

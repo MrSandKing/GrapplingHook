@@ -88,6 +88,14 @@ public final class GrapplingHookManagerImpl implements GrapplingHookManager {
     }
 
     @Override
+    public GrapplingHook getGrapplingHook(String id) {
+        return grapplingHooks.stream()
+                .filter(hook -> hook.getId().equalsIgnoreCase(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
     public void applyCooldown(Player player, GrapplingHook grapplingHook) {
         long cooldown = System.currentTimeMillis() + (grapplingHook.getCooldown() * 1000L);
         long fallDamage = System.currentTimeMillis() + (2 * 1000);
@@ -118,17 +126,21 @@ public final class GrapplingHookManagerImpl implements GrapplingHookManager {
 
     @Override
     public boolean hasCooldown(UUID uuid) {
+        return getCooldown(uuid) > 0;
+    }
+
+    @Override
+    public long getCooldown(UUID uuid) {
         Player player = Bukkit.getPlayer(uuid);
         if (player == null || !player.isOnline()) {
-            return false;
+            return 0;
         }
 
         if (player.getMetadata(COOLDOWN_METADATA).isEmpty()) {
-            return false;
+            return 0;
         }
 
-        long fallDamage = player.getMetadata(COOLDOWN_METADATA).get(0).asLong();
-        return fallDamage > System.currentTimeMillis();
+        return (player.getMetadata(COOLDOWN_METADATA).get(0).asLong() - System.currentTimeMillis()) / 1000;
     }
 
     @Override

@@ -35,7 +35,10 @@ public final class GrapplingListener implements Listener {
         }
 
         if (GrapplingHookMain.getInstance().getGrapplingHookManager().hasCooldown(player.getUniqueId())) {
-            player.sendMessage(GrapplingHookManagerImpl.COOLDOWN_MESSAGE);
+            final String message = GrapplingHookManagerImpl.COOLDOWN_MESSAGE;
+            final long seconds = GrapplingHookMain.getInstance().getGrapplingHookManager().getCooldown(player.getUniqueId());
+
+            player.sendMessage(message.replace("%COOLDOWN%", String.valueOf(seconds)));
             return;
         }
 

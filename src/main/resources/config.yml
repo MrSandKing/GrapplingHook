@@ -1,5 +1,5 @@
 SerialNumber: 0
-Cooldown-Message: "&cWait a moment, before using this again!"
+Cooldown-Message: "&cWait %COOLDOWN% seconds, before using this again!"
 
 Stats-Lore:
   - "&7Multiplier: &6%MULTIPLIER%"
