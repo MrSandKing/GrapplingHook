@@ -35,9 +35,12 @@ public final class GrapplingHookManagerImpl implements GrapplingHookManager {
     public GrapplingHookManagerImpl(JavaPlugin plugin) {
         this.grapplingHooks = new ArrayList<>();
 
-        plugin.saveDefaultConfig();
-        plugin.reloadConfig();
+        if (!plugin.getDataFolder().exists()) {
+            plugin.saveDefaultConfig();
+        }
+
         plugin.saveConfig();
+        plugin.reloadConfig();
 
         FileConfiguration config = plugin.getConfig();
         ConfigurationSection section = config.getConfigurationSection("GrapplingHooks");
