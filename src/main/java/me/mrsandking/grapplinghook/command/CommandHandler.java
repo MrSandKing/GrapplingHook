@@ -6,6 +6,7 @@ import me.mrsandking.grapplinghook.api.command.BaseCommand;
 import me.mrsandking.grapplinghook.api.util.ColourUtil;
 import me.mrsandking.grapplinghook.command.argument.GiveArgument;
 import me.mrsandking.grapplinghook.command.argument.HooksArgument;
+import me.mrsandking.grapplinghook.command.argument.ReloadArgument;
 import me.mrsandking.grapplinghook.command.argument.ResetArgument;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -88,6 +89,7 @@ public class CommandHandler extends BaseCommand {
         // Admin subcommands
         registerCommand("give", GiveArgument.class);
         registerCommand("hooks", HooksArgument.class);
+        registerCommand("reload", ReloadArgument.class);
         registerCommand("reset", ResetArgument.class);
     }
 

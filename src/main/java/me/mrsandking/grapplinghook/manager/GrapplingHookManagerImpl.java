@@ -24,7 +24,7 @@ import java.util.UUID;
 
 public final class GrapplingHookManagerImpl implements GrapplingHookManager {
 
-    private final @Getter List<GrapplingHook> grapplingHooks;
+    private @Getter List<GrapplingHook> grapplingHooks;
 
     private static final String COOLDOWN_METADATA = "COOLDOWN";
     private static final String FALL_DAMAGE_METADATA = "FALL_DAMAGE";
@@ -33,13 +33,18 @@ public final class GrapplingHookManagerImpl implements GrapplingHookManager {
     public static List<String> STATS_LORE;
 
     public GrapplingHookManagerImpl(JavaPlugin plugin) {
+        this.load(plugin);
+    }
+
+    @Override
+    public void load(JavaPlugin plugin) {
         this.grapplingHooks = new ArrayList<>();
 
         if (!plugin.getDataFolder().exists()) {
             plugin.saveDefaultConfig();
+            plugin.saveConfig();
         }
 
-        plugin.saveConfig();
         plugin.reloadConfig();
 
         FileConfiguration config = plugin.getConfig();
