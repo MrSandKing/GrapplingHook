@@ -18,6 +18,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -175,7 +177,8 @@ public final class GrapplingHookManagerImpl implements GrapplingHookManager {
                         .replace("%MULTIPLIER%", String.valueOf(grapplingHook.getMultiplier()))
                         .replace("%COOLDOWN%", String.valueOf(grapplingHook.getCooldown()))
                         .replace("%SERIAL_NUMBER%", String.valueOf(GrapplingHookImpl.SERIAL_NUMBER))
-                        .replace("%OWNER%", String.valueOf(nmsStack.getTag().getString("GrapplingHookOwner"))));
+                        .replace("%OWNER%", String.valueOf(nmsStack.getTag().getString("GrapplingHookOwner")))
+                        .replace("%DATE%", LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))));
             }
 
             itemMeta.setLore(finalLore);

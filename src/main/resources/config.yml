@@ -6,6 +6,7 @@ Stats-Lore:
   - "&7Cooldown: &6%COOLDOWN% seconds"
   - ""
   - "&7Owner: &6%OWNER%"
+  - "&7Creation Date: &6%DATE%"
   - "&7Serial Number: &6%SERIAL_NUMBER%"
 
 GrapplingHooks:
